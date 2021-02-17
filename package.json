@@ -1,0 +1,28 @@
+{
+  "name": "ws2wss",
+  "version": "1.0.0",
+  "description": "Web Server to Websocket Server Proxy",
+  "main": "main.ts",
+  "scripts": {
+    "tsc": "tsc --build --verbose",
+    "start": "tsc && nodemon ./dist/main.js --ws=8080 --wss=8081",
+    "release": "tsc & pkg ./dist/main.js --output ./dist/ws2wss.exe"
+  },
+  "author": "Philippe Haesaert",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^4.17.11",
+    "@types/websocket": "^1.0.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "rxjs": "^6.6.3",
+    "typescript": "^4.1.5",
+    "websocket": "^1.0.33",
+    "yargs": "^14.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "pkg": "^4.4.9"
+  }
+}
