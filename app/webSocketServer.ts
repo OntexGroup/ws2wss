@@ -29,11 +29,17 @@ export class WebSocketServer {
 
                 connection.on('message', function (message) {
                     if (message.type === 'utf8') {
-                        let json = JSON.parse(message.utf8Data);
-                        connection["channels"] = json.channels || [];
-                        connection["applicationId"] = json.applicationId || "";
-                        connection["userId"] =  json.userId || "";
-                        self._connectionsChanged.call(self);
+                        if(message.utf8Data == "ping"){
+                            connection.send("pong");
+                        }else{
+                            try{
+                                let json = JSON.parse(message.utf8Data);
+                                connection["channels"] = json.channels || [];
+                                connection["applicationId"] = json.applicationId || "";
+                                connection["userId"] =  json.userId || "";
+                                self._connectionsChanged.call(self);
+                            }catch{}
+                       }
                     }
                 });
             }
