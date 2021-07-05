@@ -18,7 +18,7 @@ The communication in the other direction (clients to server) is done by direct H
 Channels are a mechanism used to filter what messages the client wants to receive. As the ws2wss is a central component it can be used to pass messages for different applications. By subscribing the client only to the relevant channels you can avoid receiving redundant messages.
 
 A channel is simply a string of characters. For example a channel 'users'.
-Whenever a user is altered (CRUD) on the server side; the server can broadcast a message to ws2wss using the 'clients' channels.
+Whenever a user is altered (CRUD) on the server side; the server can broadcast a message to ws2wss using the 'users' channels.
 Only the websocket clients that are interested in changes on user data can subscribe to this channel and will receive the messages that are send by the server.
 
 # Installation
